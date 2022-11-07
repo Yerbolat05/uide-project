@@ -8,6 +8,7 @@ from rest_framework.response import Response as DRF_Response
 from rest_framework.request import Request as DRF_Request
 
 from django.db.models import QuerySet
+from django.contrib.auth.hashers import make_password
 
 from auths.models import CustomUser
 from auths.serializers import CustomUserSerializer
@@ -70,18 +71,23 @@ class CustomUserViewSet(ViewSet):
         request: DRF_Request
     ) -> DRF_Response:
         """Handles POST-request to show custom_users."""
-
+        print('OK ')
         serializer: CustomUserSerializer = \
             CustomUserSerializer(
                 data=request.data
             )
+
+        
         if serializer.is_valid():
+            if ('password' in request.data):
+                password = make_password(request.data['password'])
+                serializer.save(password=password)
             serializer.save()
             return DRF_Response(
                 {'data':f'Обьект {serializer.id} создан'}
             )
         return DRF_Response(
-            {'response': 'Обьект не создан'}
+            {'response': 'Обьект не создан'}   
         )
 
     def retrieve(

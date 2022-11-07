@@ -1,4 +1,3 @@
-from pyexpat import model
 from typing import Optional
 
 from django.contrib import admin
@@ -14,7 +13,9 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         ('Information', {
             'fields': (
+                'city',
                 'email',
+                'phone',
                 'password',
                 'date_joined',
             )
@@ -34,7 +35,9 @@ class CustomUserAdmin(UserAdmin):
                 'wide',
             ),
             'fields': (
+                'city',
                 'email',
+                'phone',
                 'password1',
                 'password2',
                 'is_active',
@@ -54,7 +57,9 @@ class CustomUserAdmin(UserAdmin):
     )
 
     list_display = (
+        'city',
         'email',
+        'phone',
         'password',
         'date_joined',
         'is_staff',
@@ -62,7 +67,9 @@ class CustomUserAdmin(UserAdmin):
     )
 
     list_filter = (
+        'city',
         'email',
+        'phone',
         'is_superuser',
         'is_staff',
         'is_active',

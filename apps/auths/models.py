@@ -15,7 +15,9 @@ class CustomUserManager(BaseUserManager):
 
     def create_user(
         self,
+        city: str,
         email: str,
+        phone: str,
         password: str
     ) -> 'CustomUser':
 
@@ -23,14 +25,16 @@ class CustomUserManager(BaseUserManager):
             raise ValidationError('Email required')
 
         user: 'CustomUser' = self.model(
+            city=city,
             email=self.normalize_email(email),
+            phone=phone,
             password=password
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def  create_superuser(
+    def create_superuser(
         self,
         email: str,
         password: str
@@ -61,9 +65,19 @@ class CustomUser(
     PermissionsMixin,
     AbstractDateTime
 ):
+    city = models.CharField(
+        'Город',
+        max_length=9,
+        default='Караганда'
+    )
     email = models.EmailField(
         'Почта/Логин',
         unique=True
+    )
+    phone = models.CharField(
+        'Номер телефона',
+        max_length=12,
+        default='87765372121'
     )
     is_active = models.BooleanField('Активность',default=True)
     is_staff = models.BooleanField('Статус менеджера',default=True)

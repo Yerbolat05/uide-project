@@ -3,6 +3,10 @@ from datetime import datetime
 from urllib import response
 
 from rest_framework import permissions
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated,
+)
 from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response as DRF_Response
@@ -10,10 +14,9 @@ from rest_framework.request import Request as DRF_Request
 
 from django.db.models import QuerySet
 
-# from abstracts.validators import APIValidator
 from abstracts.paginators import (
     AbstractPageNumberPaginator,
-    AbstractLimitOffsetPaginator,
+    AbstractLimitOffsetPaginator
 )
 from flat.models import Building
 from flat.serializers import (
@@ -41,7 +44,9 @@ class BuildingViewSet(ViewSet):
         AbstractPageNumberPaginator
 
     def get_queryset(self) -> QuerySet[Building]:
-        return self.queryset
+        return self.queryset.select_related(
+            
+        )
 
     @action(
         methods=['get'],
@@ -88,8 +93,19 @@ class BuildingViewSet(ViewSet):
         paginator: AbstractPageNumberPaginator = \
             self.pagination_class()
 
+        paginator.page_size = 4
+
+        response = self.custom_list(self.get_queryset(), paginator, request)
+        return response
+
+    def custom_list(
+        self,
+        queryset,
+        paginator,
+        request
+    ) -> DRF_Response:
         objects: list = paginator.paginate_queryset(
-            self.get_queryset(),
+            queryset,
             request
         )
 
@@ -104,12 +120,47 @@ class BuildingViewSet(ViewSet):
             )
         return response
 
+    @action(
+        methods=['get'],
+        detail=False,
+        permissions_classes=(
+            permissions.AllowAny,
+        )
+    )
+    def list_3(
+        self,
+        request: DRF_Request
+    ) -> DRF_Response:
+        """Handles GET-request to show custom_users."""
+
+        paginator: AbstractPageNumberPaginator = \
+            self.pagination_class()
+
+        paginator.page_size = 10
+
+        response = self.custom_list(self.get_queryset(), paginator, request)
+        return response
+
     def create(
         self,
         request: DRF_Request
     ) -> DRF_Response:
         """Handles POST-request to show custom_users."""
-        ...
+        serializer: BuildingSerializer = \
+            BuildingSerializer(
+                data=request.data
+            )
+        print(f'XXXXXXXXXXXXXXXXXXXXXX: {request.data}')
+        if serializer.is_valid():
+            print('OOK')
+            serializer.save()
+            return DRF_Response(
+                {'data' : f'Обьект {serializer.id} создан'}
+            )
+        print(f'!!!!!!!!!!! ERRORS: {serializer.errors}')
+        return DRF_Response(
+            {'response': 'Обьект не создан'}   
+        )
 
     def retrieve(
         self,

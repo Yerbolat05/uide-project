@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <title>Uide Login</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="menu">
+                <div class="logo">
+                    <a href="uide-main">
+                        <img src="../images/logo.png" class="icon">
+                    </a>
+                </div>
+                
+                <div class="support">
+                    <button type="button" id="about">О нас</button>
+                    <button type="button" id="ask">Вопросы и ответы</button>
+                    <button type="button" id="contact">Контакты</button>
+                </div>
+
+                <div class="authorization">
+                        <a href="landlord-main">
+                            <button type="button">Стать арендодателем</button>
+                        </a>
+                        <a href="register">
+                            <button type="button" id="registers">Регистрация</button>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="login_block">
+        <div class="block">
+            <h1>Авторизация</h1>
+            <form 
+                action="#"
+                id="authorization"
+                >
+                <label id="email_label">
+                    <span>Email</span>
+                
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+                </label>
+                <br>
+                <label id="pass_label">
+                    <span>Ваш текущий пароль от Uide</span>
+                    <input type="password" id="password" name="password" placeholder="Ваш текущий пароль от Uide" required>
+                </label>
+                <br>
+                <input type="submit" id="submit" value="Войти">
+            </form>
+            <span id="support">Входя в раздел Мой профиль, вы принимаете <a href=''>Условия использования</a> сайта</span>
+            <p id="error_msg"></p>
+        </div>
+    </div>
+    
+    <script src="./scripty.js"></script>
+</body>
+</html>

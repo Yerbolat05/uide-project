@@ -1,8 +1,5 @@
-from ast import Mod
 from datetime import datetime
-from email.mime import image
-from tabnanny import verbose
-from turtle import update
+
 from django.db.models import (
     Model,
     CharField,
@@ -16,27 +13,6 @@ from django.db.models import (
 )
 
 from abstracts.models import AbstractDateTime
-
-
-class Description(Model):
-    """Description entity."""
-
-    text = TextField(
-        verbose_name='описание',
-        default=''
-    )
-
-    def __str__(
-        self
-    ) -> str:
-        return f'Описание: {self.text}'
-
-    class Meta:
-        ordering = (
-            'text',
-        )
-        verbose_name='Описание'
-        verbose_name_plural='Описаний'
 
 
 class BuildingQuerySet(QuerySet):
@@ -57,7 +33,8 @@ class Building(AbstractDateTime):
     """Building entity."""
 
     image = ImageField(
-        verbose_name='изображение'
+        verbose_name='изображение',
+        upload_to='item_images'
     )
 
     name = CharField(
@@ -65,12 +42,9 @@ class Building(AbstractDateTime):
         max_length=100
     )
 
-
-
     TOPIC_MAX_LENGTH = 20
-
-    TOPIC_DAILY = 'посуточно'
-    TOPIC_MONTHLY = 'помесячно'
+    TOPIC_DAILY = 'daily'
+    TOPIC_MONTHLY = 'monthly'
 
     TOPIC_RANGE = (
         (TOPIC_DAILY,'Посуточно'),
@@ -84,9 +58,6 @@ class Building(AbstractDateTime):
         default=TOPIC_DAILY,
         null=True
     )
-
-
-
 
     flat_count = IntegerField(
         verbose_name='количество комнат'
@@ -113,15 +84,25 @@ class Building(AbstractDateTime):
         max_length=50
     )
 
-    description = OneToOneField(
-        Description,
+    description = TextField(
         verbose_name='описание',
-        on_delete=CASCADE
+        default=''
     )
 
     city = CharField(
         verbose_name='город',
         max_length=50
+    )
+
+    price = IntegerField(
+        verbose_name='цена',
+        default=5000
+    )
+
+    number = CharField(
+        verbose_name='номер телефона',
+        default=87762035150,
+        max_length=13
     )
 
     objects = BuildingQuerySet().as_manager()

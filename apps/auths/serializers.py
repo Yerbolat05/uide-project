@@ -11,24 +11,26 @@ from auths.models import CustomUser
 class CustomUserSerializer(ModelSerializer):
     """CustomUserSerializer."""
 
-    id = IntegerField(read_only=True)
-    email = EmailField(read_only=True)
-    is_active = BooleanField(read_only=True)
-    is_staff = BooleanField(read_only = True)
-    date_joined = DateTimeField(read_only=True)
-    datetime_creted = DateTimeField(read_only=True)
-    datetime_updated = DateTimeField(read_only=True)
-    datetime_deleted = DateTimeField(read_only=True)
+    # id = IntegerField(read_only=True)
+    # email = EmailField(read_only=True)
+    # is_active = BooleanField(read_only=True)
+    # is_staff = BooleanField(read_only = True)
+    # date_joined = DateTimeField(read_only=True)
+    # datetime_creted = DateTimeField(read_only=True)
+    # datetime_updated = DateTimeField(read_only=True)
+    # datetime_deleted = DateTimeField(read_only=True)
 
     class Meta:
         model = CustomUser
         fields = (
             'id',
+            'city',
             'email',
+            'phone',
             'is_active',
             'is_staff',
             'date_joined',
-            'datetime_creted',
+            'datetime_created',
             'datetime_updated',
             'datetime_deleted',
         )

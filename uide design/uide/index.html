@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+    <title>Uide</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="menu">
+                <div class="logo">
+                    <a href="">
+                        <img src="../images/logo.png" class="icon">
+                    </a>
+                </div>
+                
+                <div class="support">
+                    <button type="button" id="about">О нас</button>
+                    <button type="button" id="ask">Вопросы и ответы</button>
+                    <button type="button" id="contact">Контакты</button>
+                </div>
+
+                <div class="authorization">
+                    <a href="../landlord/">
+                        <button type="button">Стать арендодателем</button>
+                    </a>
+                    <a href="../">
+                          <button type="button" id="login">Выйти</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <br>
+
+    <div id="main">
+        <div class="main">
+
+            <div class="areas">
+                <select id="areas">
+                    <option value disabled selected>Выберите район</option>
+                    <option value="Город" id="iconic">Город</option>
+                    <option value="Юго-Восток">Юго-Восток</option>
+                    <option value="Майкудук">Майкудук</option>
+                    <option value="Михайловка">Михайловка</option>
+                </select>
+            </div>
+            
+            <div class="datas">
+
+                <input type="date" id="start" name="area-start" value="2022-05-07" 
+                min="2022-01-01" max="2022-12-31">
+
+                <input type="date" id="end" name="area-end" value="2022-05-31" 
+                min="2022-01-01" max="2022-12-31">
+            </div>
+
+            <div class="people">
+                <select id="humans">
+                    <option value="Комнат">Комнат</option>
+                    <option value="Человек">Человек</option>
+                    <option value="Дети">Дети</option>
+                </select>
+            </div>
+
+            <div class="search">
+                <button type="button" id="search">Пойск</button>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+
+    <div id="ad">
+        <div id="pages_ad"></div>
+    </div>
+
+    <div id="still_block">
+        <div id="still">
+            <button type="button" id="still_ad">Еще</button>
+        </div>
+    </div>
+    
+    
+    <div id="like_container">
+        <div class="like_pages">
+            <img src="../images/icon/like.png">
+            <h1>Место для избранного</h1>
+            <h3>Нажмите на сердце возле обьявлений, чтобы не потерять их</h3>
+        </div>
+    </div>
+
+    <div id="create_ad">
+        <div class="create_block">
+            <h1>Создайте обьявление</h1>
+            <form action="#" id="form_ad">
+                <div class="img_form">
+                    <div class="values">
+                        <h2>Фото</h2>
+                        <input type="file" name="file" id="file" accept="image/png, image/jpeg" required>
+                    </div>
+                </div>
+                <br>
+
+                <div class="flat_name">
+                    <div class="values">
+                        <h2>Опишите подробнее</h2>
+                        <label>
+                            <span>Заголовок*</span>
+                            <br>
+                            <input type="text" name="text" id="text_name" placeholder="Например, Однушка в Юго-Востоке" required>
+                        </label>
+                        <br>
+                        <br>
+                        <select id="term">
+                            <option value disabled selected>Срок аренды*</option>
+                            <option value="Помесячно">Помесячно</option>
+                            <option value="Посуточно">Посуточно</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="flat_info">
+                    <div class="values">
+                        <h2>Дополнительная информация</h2>
+                        <label>
+                            <span>Цена*</span>
+                            <br>
+                            <input type="number" name="number" id="price" required>
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            <span>Количество комнат*</span>
+                            <br>
+                            <input type="number" name="number" id="number_flat" class="number" required>
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            <span>Этажность*</span>
+                            <br>
+                            <input type="number" name="number" id="number_floor" class="number" required>
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            <span>Спальные места*</span>
+                            <br>
+                            <input type="number" name="number" id="number_bed" class="number" required>
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            <span>Балкон*</span>
+                            <br>
+                            <input type="number" name="number" id="number_balcony" class="number" required>
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            <span>Ванные места*</span>
+                            <br>
+                            <input type="number" name="number" id="number_bath" class="number" required>
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            <span>Рядом есть*</span>
+                            <br>
+                            <input type="text" name="text" id="text_near" required>
+                        </label>
+                        <br>
+                        <br>
+                        <label>
+                            <span>Описание*</span>
+                            <br>
+                            <textarea name="description" cols="80" rows="16" id="description"></textarea>
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="user_info">
+                    <div class="values">
+                    <h2>Контактное информация</h2>
+                    <label>
+                        <span>Ваше Имя*</span>
+                        <br>
+                        <input type="text" name="name" id="namese">
+                    </label>
+                    <br>
+                    <br>
+                    <label>
+                        <select id="city">
+                            <option value disabled selected>Ваш Город*</option>
+                            <option>Караганда</option>
+                        </select>
+                    </label>
+                    </div>
+                </div>
+                <br>
+                <div class="submit">
+                    <input type="submit" name="submit" id="submit" value="Опубликовать">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="msg_content">
+        <div class="msg_block">
+            <img src="../images/icon/indeveloping.png">
+            <h1>Еще в разработке</h1>
+            <h3>Подождите немног. Все будет но не сразу</h3>
+        </div>
+    </div>
+
+    <div id="cabinet_content">
+        <div class="cabinet_block">
+            <div class="user">
+                <h1 id="username"></h1>
+                <button type="button" id="rules">Правила</button>
+            </div>
+            <div class="menu_btn">
+                <button type="button" id="public">Опубликовать</button>
+            </div>
+            <div class="my_ads">
+                    <h2>Ваши обьявление</h2>
+                    <div id="ad_public">
+
+                    </div>    
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="navigations">
+            <div id="home">
+                    <button type="button" id="home_btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 17 17">
+                        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                    </svg>Uide</button>
+            </div>
+
+            <div id="like">
+                    <button type="button" id="like_btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 17 17">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                    </svg>Избранное</button>
+            </div>
+
+            <div id="add">
+                    <button type="button" id="add_btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 17 17">
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                    </svg>Подать обьявление</button>
+            </div>
+
+            <div id="message">
+                    <button type="button" id="message_btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 17 17">
+                        <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
+                    </svg>Сообщения</button>
+            </div>
+
+            <div id="cabinet">
+                    <button type="button" id="cabinet_btn"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 17 17">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>Кабинет</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/refresh.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

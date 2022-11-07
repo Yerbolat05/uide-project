@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <title>Uide Landlord</title>
+</head>
+<body>
+    <header class="header">
+
+        <div class="container">
+            <div class="menu">
+                <div class="logo">
+                    <a href="../uide">
+                        <img src="../images/logo.png" class="icon">
+                    </a>
+                </div>
+                
+                <div class="support">
+                    <button type="button">О нас</button>
+                    <button type="button">Вопросы и ответы</button>
+                    <button type="button">Контакты</button>
+                </div>
+
+                <div class="authorization">
+                    <a href="../uide">
+                        <button type="button">Для арендателя</button>
+                    </a>
+                    <a href="../">
+                          <button type="button" id="login">Выйти</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="main" id="main">
+        <div class="content">
+            <div class="form">
+                <h1>Заполните форму, чтобы зарабатывать с нами</h1>
+                    <input type="text" name="name" id="name" placeholder="Имя и фамилия" class="input">
+                    <select class="input">
+                        <option value disabled selected>Выберите район</option>
+                        <option>Город</option>
+                        <option>Юго-Восток</option>
+                        <option>Михайловка</option>
+                        <option>Майкудук</option>
+                    </select>
+                    <input type="number" name="number" id="number" placeholder="Количество квартир" class="input">
+                    <input type="text" name="phone" id="phone" placeholder="Ваш номер телефона" class="input">
+                    <form action="">
+                        <input type="submit" id="submit" value="Отправить заявку">
+                    </form>
+                    <span>Нажимая кнопку «Отправить заявку», вы даёте согласие на обработку персональных данных</span>
+            </div>
+            <h1 id="plo">Начни зарабатывать с Uide</h1>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

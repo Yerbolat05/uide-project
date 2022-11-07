@@ -7,7 +7,6 @@ from requests.models import Response
 from django.core.management.base import BaseCommand
 
 from flat.models import (
-    Description,
     Building,
     Amenities,
 )
@@ -40,13 +39,6 @@ class Command(BaseCommand):
         data: list = response.json()
         obj: dict
         for obj in data:
-           
-            description: Description
-            created: bool
-            description, created = \
-                 Description.objects.get_or_create(
-                    text=obj['description']
-                )
 
             building: Building
             created: bool
@@ -60,7 +52,7 @@ class Command(BaseCommand):
                     landmark=obj['landmark'],
                     flat_count=obj['totalTenantsReq'],
                     floor=obj['cotNo'],
-                    description=description,
+                    description=obj['description'],
                     city=obj['city'],
                 )
 

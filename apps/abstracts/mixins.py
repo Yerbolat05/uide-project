@@ -1,4 +1,3 @@
-from re import template
 from django.core.handlers.wsgi import WSGIRequest
 from django.template import (
     loader,

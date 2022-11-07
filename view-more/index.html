@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1200">
+    <title>Uide</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>  
+
+    <header class="header">
+        <div class="container">
+            <div class="menu">
+                <div class="logo">
+                    <a href="../uide/">
+                        <img src="../images/logo.png" class="icon">
+                    </a>
+                </div>
+                
+                <div class="support">
+                    <button type="button" id="about">О нас</button>
+                    <button type="button" id="ask">Вопросы и ответы</button>
+                    <button type="button" id="contact">Контакты</button>
+                </div>
+
+                <div class="authorization">
+                    <a href="../landlord/">
+                        <button type="button">Стать арендодателем</button>
+                    </a>
+                    <a href="../">
+                          <button type="button" id="login">Выйти</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="loading_screen">
+        <div class="load"></div>
+    </div>
+
+    <div class="main">
+        <div class="map" id="map"></div>
+        <span>
+            <div id="ad_pages"></div>
+            <div id="ad_pages_two"></div>
+            <br>
+            <div id="pagination">
+                <div id="numbers_pag">
+                    <button id="one_btn">1</button>
+                    <button id="two_btn">2</button>
+                    <button id="three_btn">3</button>
+                    <button id="four_btn">4</button>
+                    <button id="five_btn">5</button>
+                    <button id="six_btn">6</button>
+                    </div>
+            </div>
+        </span>
+    </div>
+    
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=742f2593-c498-45cf-b886-dde29093d144&lang=ru_RU">
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
